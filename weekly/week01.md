@@ -104,7 +104,8 @@ DOI：10.1145/3498366.3505830
 
 <img width="2180" height="668" alt="image" src="https://github.com/user-attachments/assets/0c08bf54-d08b-4ba7-8f76-8b1b99bc89b9" />
 
-
 “AI as an Agent and Collaborative Space: Exploring the Role of Generative AI in Small Group Synchronous and Asynchronous Collaborative Dynamics.”
 
 CHI 2026
+
+ 

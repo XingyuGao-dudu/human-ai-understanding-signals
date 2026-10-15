@@ -18,11 +18,15 @@
 
 #### 3. 现有文献分别做了什么
 
-![](assets/week01/figure-01.png)
+| 文章 | 场景 | 用户任务 | 输入方式 | 主要发现 |
+| --- | --- | --- | --- | --- |
+| GazeNoter | 坐着听speech；边走边参加meeting和discussion | 在内容持续发生时，记录重点、稍后要问的问题和自己的观点 | AI生成context、customized和derivative keywords及candidate sentences；用户用gaze选择、ring确认 | User-in-the-loop笔记比全自动笔记更符合用户意图；AR版本比手机打字和手机选择更少打断、负荷更低，并支持更多、更完整的笔记 |
+| NoTeeline | 个人在电脑前观看信息密集的预录视频 | 听到重点时快速留下短笔记，之后获得完整、个性化笔记 | 用户键盘输入micronote；AI结合时间点transcript和个人写作样本扩写 | 相比手动笔记，减少47%输入文字和43.9%书写时间，暂停和回看更少，mental demand、effort和frustration更低 |
+| MaRginalia | 模拟现场单讲者lecture，学生同时看讲师、幻灯片并听讲 | 捕捉和标注幻灯片或讲话内容，自己书写笔记，并在遗漏后回看历史内容 | MR＋tablet；gaze负责切换和定位空间面板，pen负责捕捉、标注和书写 | 用户多数时间保持heads-up，认为系统能帮助快速捕捉、保持参与并补回遗漏内容；但研究属于可行性和可用性探索 |
 
 现有实时笔记系统主要用多模态输入来捕捉内容、标注内容，或者从AI生成的内容中选择一条笔记；但在AI持续生成转录和笔记的过程中，还不知道用户需要在什么时候、以什么意图，如何用轻量多模态输入，快速表明这些意图：指的是哪段内容， 希望AI对它做什么
 
-![](assets/week01/figure-02.jpeg)
+<img width="2784" height="1097" alt="image" src="https://github.com/user-attachments/assets/0cfc4d75-0194-4ec1-884c-5411f7692868" />
 
 ### References
 
@@ -42,9 +46,12 @@ AI点头和面部行为能够提升engagement与perceived understanding，但主
 
 因此，我们研究AI能否在回应前通过轻量面部线索外显其即时对话状态，帮助用户更早发现并修复误解
 
-![](assets/week01/figure-03.png)
+| 文章 | 研究问题 | 实验／分析做了什么 | 主要结果 |
+| --- | --- | --- | --- |
+| Navigating Rifts in Human–LLM Grounding | 人与LLM的grounding行为有什么不同？早期grounding failure是否会导致后续对话崩溃？ | 这不是受控用户实验。作者分析WildChat、MultiWOZ和Bing Chat三类对话日志，建立grounding acts分类并标注对话；随后构建Rifts benchmark，测试当前模型能否在需要时主动澄清或追问。 | 与人类相比，LLM主动澄清的可能性低约3倍，提出follow-up<!-- 原图右侧截断 --><br>性低约16倍；早期未修复的grounding failure能够预测后续互<!-- 原图右侧截断 --><br>沿模型在相关benchmark上的表现仍较差。（ACL Anthology） |
+| Empathic Grounding | 与中性backchannel相比，结合面部表情、头部动作和语言的empathic grounding，是否能让用户觉得机器人更理解自己、更有同理心和更值得信任？ | 18人完成实验，1人因技术问题被排除，最终分析17人。参与者被随机分到两组，与人形机器人谈论过去的疼痛经历：一组机器人只做中性点头和“OK”等回应；另一组根据用户语言和面部表情，生成相应的表情、点头和简短共情回应。实验后填写同理心、理解感、情绪智能、信任等量表，并接受访谈。 | Empathic Grounding组认为机器人更有同理心、情绪智能，w<!-- 原图右侧截断 --><br>／trust更高，也更常觉得机器人真正听懂了自己。但实验样本<br>受限，而且它表达的是对**用户情绪的理解**，没有研究AI如何用<!-- 原图右侧截断 --><br>**不确定或需要澄清**。（arXiv） |
+<img width="3205" height="442" alt="image" src="https://github.com/user-attachments/assets/cff05c6a-0620-4890-8ec7-d75e4cfd4479" />
 
-![](assets/week01/figure-04.jpeg)
 
 [1] Omar Shaikh, Kristina Gligorić, Ashna Khetan, Matthias Gerstgrasser, Diyi Yang, and Dan Jurafsky. 2024. Grounding Gaps in Language Model Generations. In Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, 6279–6296.
 
@@ -69,10 +76,13 @@ AI点头和面部行为能够提升engagement与perceived understanding，但主
 AI如何面对不同群体的需求，
 
 搜文献，在ai：可能直接通过改模型就可以直接解决问题了，
+| 文章 | 算法解决什么 | 怎么做 | 结果 |
+| --- | --- | --- | --- |
+| Empowering Older Adults in Digital Technology Use with Foundation Models（Sharifi et al., 2026） | 老年人在求助数字技术问题时，可能出现描述冗长、信息不完整、过度具体或不够具体，导致AI和搜索系统难以理解 | 使用GPT-4o的prompt-chaining：先追问缺失的背景信息，再改写老年人的原始问题，最后生成解决方案；同时构建老年人技术求助数据集OATS | AI改写后，解决方案准确率从46%提高到69%，搜索结果准确率从35%提高到69%。说明算法通过补全和重写输入，提高了机器对老年人意图的理解。（arX<!-- 原图右侧截断 -->） |
+| COAS2W: A Chinese Older-Adults Spoken-to-Written Transformation Corpus with Context Awareness（Kang et al., EMNLP 2025） | 老年人口语中可能包含省略、语序混乱、成分错误和重复，直接转录后不适合后续AI任务 | 建立包含10,004条中国老年人口语的spoken-to-written数据集，并用上下文微调轻量开源模型，将口语转换成规范书面表达 | 微调后的轻量模型优于更大的闭源模型；加入多句上下文能提高转换表现，规范化后的文本也改善了下游翻译任务。（ACL Anthology） |
 
-![](assets/week01/figure-05.png)
+<img width="1886" height="886" alt="image" src="https://github.com/user-attachments/assets/468c7cd3-feee-4041-99b2-3d3b21360217" />
 
-![](assets/week01/figure-06.jpeg)
 
 ### Xing, Yuan, & Mostafa (2022)
 
@@ -92,7 +102,8 @@ DOI：10.1145/3498366.3505830
 
 设计并评估一个alignment-aware AI system，帮助成员检查AI是否准确代表每个人，并在形成最终方案前修复错误对齐。
 
-![](assets/week01/figure-07.jpeg)
+<img width="2180" height="668" alt="image" src="https://github.com/user-attachments/assets/0c08bf54-d08b-4ba7-8f76-8b1b99bc89b9" />
+
 
 “AI as an Agent and Collaborative Space: Exploring the Role of Generative AI in Small Group Synchronous and Asynchronous Collaborative Dynamics.”
 

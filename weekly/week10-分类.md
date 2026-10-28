@@ -75,7 +75,6 @@ https://www.ifaamas.org/Proceedings/aamas2018/pdfs/p1213.pdf
 
 <img width="1462" height="562" alt="image" src="https://github.com/user-attachments/assets/3b71ec8c-f175-4f19-a06f-e0f416cf1054" />
 <img width="1280" height="380" alt="image" src="https://github.com/user-attachments/assets/3975ce82-3d0d-4c9a-8469-d85272d67846" />
-<img width="1470" height="536" alt="image" src="https://github.com/user-attachments/assets/d50358a9-eeb8-4f20-9d1d-2c013d5b8ed0" />
 
 
 #### 1．背景
@@ -164,6 +163,8 @@ https://toby.li/files/Li_Sovite_Error_Handling_UIST2020.pdf
 语音助手理解错任务后，用户不知道错在哪里，反复换说法也可能无效
 
 作者开发SOVITE：用应用截图展示系统理解的任务，让用户直接指出、修改错误
+<img width="1470" height="536" alt="image" src="https://github.com/user-attachments/assets/d50358a9-eeb8-4f20-9d1d-2c013d5b8ed0" />
+
 
 <img width="1280" height="776" alt="image" src="https://github.com/user-attachments/assets/a846150a-554d-4b33-80ad-22f66185e478" />
 
@@ -249,109 +250,107 @@ CHI 2026
 
 https://www.dfki.de/web/forschung/projekte-publikationen/publikation/1700
 
-系统怎样在不要求用户明确输入的情况下，感知用户不同意？
-
-
-https://www.dfki.de/web/forschung/projekte-publikationen/publikation/17004
 
 <img width="1280" height="457" alt="image" src="https://github.com/user-attachments/assets/05e11d67-d1ed-48b1-aad4-153a269dc767" />
 <img width="788" height="668" alt="image" src="https://github.com/user-attachments/assets/5181b6de-b228-407d-8c6f-382b582001e5" />
 
 
-### 1．背景
+系统怎样在不要求用户明确输入的情况下，感知用户不同意？
 
-用户不同意AI结果时，未必主动反馈；频繁询问又会打断互动。
+#### 1．背景
 
-作者采集眼动和表情，检验它们能否预测用户的同意／不同意判断，并公开数据集。
+用户不同意AI结果时，未必主动反馈,频繁询问又会打断互动。
 
-### 2．RQ
+作者采集眼动和表情，检验它们能否预测用户的同意／不同意判断，并公开数据集
 
-#### RQ1
+#### 2．RQ／假设
 
-> Can perceived disagreement with image–caption outputs be reliably detected from passive gaze and facial signals collected during a simulated human–AI interaction task?
+RQ1
+
+Can perceived disagreement with image–caption outputs be reliably detected from passive gaze and facial signals collected during a simulated human–AI interaction task?
 
 能否利用被动采集的眼动和面部信号，识别用户是否不同意图片描述？
 
-#### RQ2
+RQ2
 
-> How do personalised and generalised disagreement-detection models compare in terms of accuracy, reliability, and robustness to inter-participant variability?
+How do personalised and generalised disagreement-detection models compare in terms of accuracy, reliability, and robustness to inter-participant variability?
 
 个体化与通用模型，在准确性、可靠性及应对个体差异方面表现如何？
 
-#### RQ3-A
+RQ3-A
 
-> Which gaze-based features are most predictive of perceived disagreement, and how consistent are these predictive features across participants?
+Which gaze-based features are most predictive of perceived disagreement, and how consistent are these predictive features across participants?
 
 哪些眼动特征最能预测不同意？不同人是否一致？
 
-#### RQ3-B
+RQ3-B
 
-> Which time window prior to a participant’s decision best discriminates perceived disagreement using passive gaze signals, and how does the duration of this window impact classification performance?
+Which time window prior to a participant’s decision best discriminates perceived disagreement using passive gaze signals, and how does the duration of this window impact classification performance?
 
 判断前哪个时间窗口最有预测价值？窗口长度怎样影响分类？
 
-### 3．实验设置
+#### 3．实验设置
 
-模拟图片描述AI，使用预先准备的图片和描述。
+系统：模拟图片描述AI.使用预先准备的图片和描述
 
-30人逐项查看154组图片与描述，选择同意／不同意，同时记录眼动和面部视频。
+实验一句话：30人逐项查看154组图片与描述，选择同意／不同意，同时记录眼动和面部视频。
 
-- 使用FOIL-COCO图片描述，77条正确，77条替换一个词。
-- A、B组看相同图片，但正确／错误描述分配相反。
-- 每人呈现顺序随机。
-- 一次数据采集，之后开展多轮离线模型分析。
+- FOIL-COCO图片描述：77条正确、77条替换一个词
+- A、B组看相同图片，但正确／错误描述分配相反
+- 每人呈现顺序随机
+- 一次数据采集，之后开展多轮离线模型分析
 
 #### 流程
 
-同意参与及人口问卷 → 九点眼动校准 → 练习 → 倒计时 → 图片描述 → 提交判断 → 下一项 → 结束说明。
+同意参与及人口问卷 → 九点眼动校准 → 练习 → 倒计时 → 图片描述 → 用户提交判断 → 下一项 → 结束说明。
 
-用户负责判断，设备自动记录，模型在采集后训练和测试。
+用户负责判断,设备自动记录,模型在采集后训练测试
 
-### 4．收集什么数据
+#### 4．收集什么数据
 
 | 数据 | 具体记录什么 | 怎么收、何时收 |
 | --- | --- | --- |
-| 眼动与瞳孔 | 看哪里、何时看、瞳孔大小 | Tobii Pro Fusion，250 Hz |
-| 面部视频 | 查看描述时的面部变化 | OAK-D摄像头，30 Hz |
+| 眼动与瞳孔 | 看哪里、何时看、瞳孔大小 | Tobii Pro Fusion，250 Hz，全程 |
+| 面部视频 | 用户看描述时的面部变化 | OAK-D摄像头，30 Hz，全程 |
 | 用户判断 | 每项选择同意还是不同意 | 每次查看后提交 |
-| 刺激与时间 | 对应图片、描述、出现及提交时间 | 按试次保存，设备同步至电脑时钟 |
+| 刺激与时间 | 对应哪张图、哪条描述、出现与提交时间 | 按试次保存；设备同步到电脑时钟 |
 | 材料正确答案 | 描述原本正确还是错误 | 来自预设材料，独立于用户判断 |
 
-预处理后得到4,092个有效试次。训练标签使用用户选择。
+预处理后得到4,092个有效试次,训练标签用用户选择
 
-### 5．数据—分析—结果
+#### 5．数据—分析—结果Mapping
 
 | 对应问题 | 数据怎样对应 | 怎么分析 | 结果 |
 | --- | --- | --- | --- |
-| RQ1：信号能否预测判断 | 每次图片出现至提交间的眼动、面部数据，对应该次选择 | 提取眼动及面部AU统计特征，测试分类模型与模态融合 | 加入面部数据未改善表现 |
-| RQ2：能否用于新用户 | 按参与者划分数据 | 部分人训练、其他人测试，五折交叉验证 | 最佳通用配置约57%平衡准确率 |
-| RQ2：针对个人是否更好 | 每人的试次单独整理 | 同一人的部分试次训练，其余测试，分层五折交叉验证 | 结合个人特征和窗口选择，平均约68.4% |
+| RQ1：信号能否预测判断 | 每次图片出现至提交之间的眼动、面部数据，对应该次选择 | 提取眼动数值及面部AU统计特征，测试分类模型及模态融合 | 加入面部没有改善表现 |
+| RQ2：能否用于新用户 | 按参与者划分数据 | 部分人训练、其他人测试，五折交叉验证 | 通用模型最佳约57%平衡准确率 |
+| RQ2：针对个人是否更好 | 每人的试次单独整理 | 同一个人的部分试次训练、其余测试，分层五折交叉验证 | 结合个人特征、窗口选择，平均68.4% |
 | RQ3-A：哪些特征有用 | 同意／不同意标签对应各眼动特征 | 分布检验后用t检验或Wilcoxon，BH多重比较校正 | 有差异的特征因人而异 |
-| RQ3-B：哪段时间有用 | 每次判断对应完整记录、最后3秒或11秒 | 比较不同窗口的分类表现 | 最佳窗口因人而异，无统一最优窗口 |
+| RQ3-B：哪段时间有用 | 每次判断对应完整记录、最后3秒或11秒 | 比较不同窗口下分类表现 | 最佳窗口因人而异，无统一最优窗口 |
 
-### 6．具体工作流与对应需求
+#### 6．具体工作流与对应需求
 
-| 步骤 | 作者具体做了什么 | 工具需要支持什么 |
+| 步骤 | 作者具体做了什么 | 工具需要能做什么 |
 | --- | --- | --- |
-| 准备材料 | 为同一图片准备正确和错误描述 | 保存图片、描述和材料答案 |
+| 准备材料 | 为同一图片准备正确和错误描述 | 保存图片、描述及材料答案 |
 | 平衡与随机 | 两组分配不同描述，每人顺序随机 | 控制材料分配，保存实际呈现顺序 |
-| 校准与同步 | 眼动校准；摄像头、眼动仪同步电脑时间 | 检查校准，让设备时间对应 |
-| 呈现并收判断 | 显示图片描述，等待用户选择 | 保存出现、选择和提交时间 |
-| 切分行为 | 截取图片出现至提交间的数据 | 按试次定位对应眼动和视频 |
-| 提取特征 | 识别注视、扫视、兴趣区及面部AU | 保留原始数据，关联处理后特征 |
-| 分开两类答案 | 分别保存材料正确性与用户判断 | 不把“描述错误”等同于“用户不同意” |
-| 重选窗口 | 比较完整记录、最后3秒和11秒 | 以提交时刻倒推不同窗口 |
-| 训练测试 | 分别按新用户和同一用户划分 | 保留编号及训练／测试归属 |
+| 校准与同步 | 眼动校准；摄像头、眼动仪同步电脑时间 | 检查校准，让不同设备时间对应 |
+| 呈现并收判断 | 显示图片描述，等待用户选择 | 保存刺激出现时间、选择及提交时间 |
+| 切分行为 | 截取图片出现至提交之间的数据 | 按试次找回对应眼动和视频 |
+| 提取特征 | 识别注视、扫视、兴趣区；提取面部AU | 保留原始数据，关联处理后的特征 |
+| 分开两类答案 | 材料正确性与用户判断分别保存 | 不把“描述错误”直接等同“用户不同意” |
+| 重选窗口 | 比较完整记录、最后3秒、最后11秒 | 能以提交时刻倒推截取不同长度 |
+| 训练测试 | 分别按新用户和同一用户划分 | 保留参与者编号，明确训练／测试归属 |
 
-**核心工作流：**呈现材料 → 记录行为 → 用户判断 → 按试次对应 → 建立数据集 → 测试识别模型。
+核心工作流：呈现材料 → 记录行为 → 用户判断 → 按试次对应 → 建立数据集 → 测试识别模型。
 
----
+## C．用户理解AI内容的过程，怎样被记录和判断？
 
-# C．用户理解AI内容的过程，怎样被记录和判断？
+### From Gaze to Guidance: Interpreting and Adapting to Users’ Cognitive Needs with Multimodal Gaze-Aware AI Assistants
 
-## From Gaze to Guidance: Interpreting and Adapting to Users’ Cognitive Needs with Multimodal Gaze-Aware AI Assistants
+从视线到指导：利用多模态视线感知AI助手，解释并适应用户认知需求
 
-**UIST 2026**
+UIST 2026
 
 https://arxiv.org/html/2604.08062v1
 <img width="1280" height="509" alt="image" src="https://github.com/user-attachments/assets/12d54c76-c74a-4b9b-ba74-6c70401f3870" />
@@ -359,62 +358,55 @@ https://arxiv.org/html/2604.08062v1
 <img width="1280" height="482" alt="image" src="https://github.com/user-attachments/assets/4bc287fa-791a-44f1-ae1a-f3a195e16ecb" />
 
 
-### 1．背景与研究目标
+#### 1．背景
 
-用户读不懂时，未必能说清卡在哪里。作者让LLM结合阅读视线推测困难，阅读结束后再提供语音帮助。
+用户读不懂时，未必能说清卡在哪里。作者让LLM结合阅读视线推测困难，阅读结束后再提供语音帮助
 
-原文目标片段：
+offer more relevant, personalized, and cognitive-oriented support
 
-> offer more relevant, personalized, and cognitive-oriented support
+加入视线后，助手是否更贴合用户、是否改善理解表现
 
-提供更相关、个性化、面向认知需求的支持。
+#### 3．实验设置
 
-研究目标概括：加入视线后，助手是否更贴合用户，是否改善理解表现。
+Aria眼镜采集第一人称画面和视线,GPT-4.1读取带视线标记的图像，形成带时间的观察，再推测困难位置。
 
-### 2．实验设置
+参与者：41人招募，36人进入分析。组内设计，每人都用：
 
-Aria眼镜采集第一人称画面和视线。GPT-4.1读取带视线标记的图像，形成带时间的观察，再推测困难位置。
+视线条件：助手获得文章＋基于视线的困难分析
 
-招募41人，36人进入分析。组内设计，每人都体验：
+文字条件：助手获得文章＋仅根据文章推测的困难分析
 
-| 条件 | 助手获得的信息 |
-| --- | --- |
-| 视线条件 | 文章＋基于视线的困难分析 |
-| 文字条件 | 文章＋仅根据文章推测的困难分析 |
+流程：阅读 → 理解自评 → 与助手语音交流 → 再次自评及测验 → 评价助手的分析
 
-两个主要任务分别阅读“通货膨胀”和“板块构造”，条件顺序平衡。另设两类分析的并排比较，最后访谈。
+两个主要任务分别读“通货膨胀”“板块构造”，条件顺序平衡；另设并排比较两类分析，最后访谈
 
-#### 流程
-
-阅读 → 理解自评 → 与助手语音交流 → 再次自评及测验 → 评价助手的分析。
-
-### 3．收集什么数据
+#### 4．收集什么数据
 
 | 数据 | 怎么收、何时收 |
 | --- | --- |
-| 视线和第一人称画面 | 阅读时由眼镜采集 |
+| 视线＋第一人称画面 | 阅读时由眼镜采集 |
 | AI观察和困难分析 | 保存所看内容、时间及推断 |
-| 对话记录 | 阅读后与助手语音交流 |
+| 对话记录 | 阅读后语音交流 |
 | 主观理解 | 交流前后评分 |
-| 客观表现 | 交流后测事实回忆、术语定义、概念应用 |
+| 客观表现 | 交流后：事实回忆、术语定义、概念应用 |
 | 分析评价、体验及访谈 | 评价准确性、个性化、负担和使用体验 |
 
-### 4．数据—分析—结果
+#### 5．数据—分析—结果Mapping
 
 | 问题 | 数据怎样对应、分析 | 结果 |
 | --- | --- | --- |
-| 是否改善表现 | 同一人两条件测验配对比较，使用t检验／Wilcoxon | 回忆表现96.3%对88.9%；定义和概念应用无显著差异 |
+| 是否改善表现 | 同一人两条件测验配对比较；t检验／Wilcoxon | 回忆96.3%对88.9%；定义、概念应用无显著差异 |
 | 是否更贴合用户 | 分析对应本人评分，配对比较 | 感知准确性、个性化更高 |
-| 是否减少表达负担 | 对话对应条件，比较用户字数和轮次 | 用户字数减少；轮次差异不显著 |
-| 哪里有用、哪里误判 | 访谈转写，归纳编码 | 帮助更有针对性，但视线也可能被误解 |
+| 是否减少表达负担 | 对话对应条件，比较字数、轮次 | 用户字数减少；轮次差异不显著 |
+| 哪里有用、哪里误判 | 访谈转写，归纳编码 | 帮助更有针对性，但视线也会被误解 |
 
-### 5．具体工作流与对应需求
+#### 6．具体工作流与对应需求
 
-| 作者具体做了什么 | 工具需要支持什么 |
+| 作者具体做了什么 | 工具需要能做什么 |
 | --- | --- |
-| 将视线点画在第一人称画面上 | 将“看哪里”对应到实际内容 |
-| 每0.5秒发送画面及局部裁剪，生成带时间的观察 | 保存图像、时间及AI识别结果 |
-| 根据观察序列推测阅读困难 | 将原始观察与AI解释分开保存 |
-| 阅读结束后，用分析指导语音帮助 | 将阅读记录传给后续对话 |
+| 将视线点画在第一人称画面上 | 把“看哪里”对应到实际内容 |
+| 每0.5秒发送画面及局部裁剪，生成带时间观察 | 保存图像、时间及AI识别结果 |
+| 根据观察序列推测阅读困难 | 把原始观察与AI解释分开存 |
+| 阅读结束后，用分析指导语音帮助 | 将阅读记录传给后续对话，不打断阅读 |
 | 用两种分析控制同一类助手 | 切换是否提供视线信息，保留条件 |
-| 分别收集测验、自评和分析评价 | 分开保存表现、自觉理解及对AI判断的认可 |
+| 测验、自评、分析评价分别收集 | 分开保存实际表现、自觉理解及对AI判断的认可 |

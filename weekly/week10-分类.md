@@ -6,187 +6,186 @@
 - B：能否从用户信号判断用户的某种状态或情况？
 - C：用户理解AI内容的过程，怎样被记录和判断？
 
-暂定Scope：**人–AI互动中的用户状态与反馈。**
+我们的scope可能是(人–AI互动中的用户状态与反馈)
 
-### 这些研究面临的问题
+### 这些文章遇到的问题是
 
-- 同一个行为，可能有不同含义。
-- 用户不一定把状态表现出来。
-- 需要可以核对的判断证据。
-- 证据需要对应具体内容和时刻。
-- 取证可能改变互动。
-- 不同证据可能互相矛盾。
+同一个行为，意思可能不同。
+
+用户不一定把状态表现出来。
+
+缺少可以核对的证据
+
+证据需要不上具体内容和时刻。
+
+取证可能会改变互动
+
+不同证据可能互相矛盾
 
 ### 为了回答这些问题，收集了什么数据？
 
-| 方面 | 数据 |
-| --- | --- |
-| 用户怎么表现 | 录音、视频、视线、表情、头部动作、点击和操作 |
-| 用户怎么说 | 对话原文、即时自评、结束后的回看说明 |
-| 用户实际会什么 | 解释题、判断题、应用题和操作结果 |
-| AI做了什么 | 讲了什么、何时追问、何时补充、显示了什么 |
-| 当时是什么情况 | 任务内容、实验条件、当前知识点和事件时间 |
+用户怎么表现：录音、视频、视线、表情、头部动作、点击和操作
 
-### 哪些需求反复出现？
+用户怎么说：对话原文、即时自评、结束后的回看说明
 
-- **设置AI：**使用什么模型、收到什么输入、怎样回应。
-- **记录双方：**用户说了什么、AI说了什么，发生在什么时候。
-- **中途收报告：**在指定内容或事件后，问用户当时怎么想。
-- **取得表现证据：**让用户答题、解释或操作，保存答案及理由。
-- **对应材料：**把某次点头、某句话、自评和答题结果放回相关互动片段。
-- **回看和标注：**找到片段，补充解释，记录研究者的判断。
-- **区分证据：**用户说“懂了”、研究者认为他懂了、实际答对，是不同的证据。
+用户实际会什么：解释题、判断题、应用题和操作结果
 
-### 需求可以怎样归类？
+AI做了什么：讲了什么、何时追问、何时补充、显示了什么
 
-| 环节 | 内容 |
-| --- | --- |
-| 实验怎么搭 | 设置任务、AI、双方输入输出、实验条件和测量时机 |
-| 数据怎么收 | 连续记录对话和行为；按需收自评、答案、操作及回看报告 |
-| 材料怎么对应和分析 | 按时间、内容和事件找到相关材料；分别标注，再比较行为、自评和实际表现 |
+当时是什么情况：任务内容、实验条件、当前知识点和事件时间
 
-> 以下“对应需求”是根据论文流程提炼的工具需求，不等于作者明确报告的困难，也不代表现有工具尚未实现。
+### 其中哪些需求反复出现？
 
----
+设置AI：用什么模型、收到什么输入、怎样回应
 
-# A．用户怎样反馈，代理怎样接收和回应？
+记录双方：用户说了什么、AI说了什么，发生在什么时候
 
-## A1．Communicative Listener Feedback in Human–Agent Interaction: Artificial Speakers Need to Be Attentive and Adaptive
+中途收报告：在指定内容或事件后，问用户当时怎么想
 
-**AAMAS 2018**
+取得表现证据：让用户答题、解释或操作，保存答案及理由
+
+对齐材料：把某次点头、某句话、自评和答题结果放回同一段互动
+
+回看和标注：找到片段，补充解释，记录研究者的判断
+
+区分证据：用户说“懂了”、研究者认为他懂了、实际答对
+
+### 这些需求可以怎样归类？
+
+#### A．实验怎么搭
+
+设置任务、AI、输入输出、实验条件和测量时机。
+
+#### B．数据怎么收
+
+连续记录对话和行为；在需要的时候收自评、答案、操作及回看报告。
+
+#### C．材料怎么对应和分析
+
+按时间、具体内容和事件找到相关材料；分别标注，再比较行为、自评和实际表现
+
+## A 用户怎样反馈，代理怎样接收和回应？
+
+### 1 Communicative Listener Feedback in Human–Agent Interaction: Artificial Speakers Need to Be Attentive and Adaptive
+
+AAMAS 2018
 
 https://www.ifaamas.org/Proceedings/aamas2018/pdfs/p1213.pdf
+<img width="1434" height="396" alt="image" src="https://github.com/user-attachments/assets/8e5d7266-07a5-4171-b06d-02f7c08cb8c0" />
 
-### 1．背景
+<img width="1462" height="562" alt="image" src="https://github.com/user-attachments/assets/3b71ec8c-f175-4f19-a06f-e0f416cf1054" />
+<img width="1280" height="380" alt="image" src="https://github.com/user-attachments/assets/3975ce82-3d0d-4c9a-8469-d85272d67846" />
+<img width="1470" height="536" alt="image" src="https://github.com/user-attachments/assets/d50358a9-eeb8-4f20-9d1d-2c013d5b8ed0" />
 
-已有研究较多关注代理怎样给人反馈。本文研究：代理关注并回应人的反馈后，人会不会继续反馈，能不能感觉到代理在配合自己。
 
-### 2．RQ与假设
+#### 1．背景
 
-#### RQ1
+已有研究多研究代理怎样给人反馈。本文研究：代理关注并回应人的反馈后，人会不会继续反馈，能不能感觉到代理在配合自己。
 
-> Are human interlocutors willing to provide natural communicative listener feedback to artificial conversational agents?
+#### 2．RQ
 
-人是否愿意向人工对话代理提供自然的听者反馈？
+1：Are human interlocutors willing to provide natural communicative listener feedback to artificial conversational agents?
 
-#### RQ2
+2：Do human interlocutors notice that they are interacting with an agent that makes a collaborative effort in the joint project of making itself understood?
 
-> Do human interlocutors notice that they are interacting with an agent that makes a collaborative effort in the joint project of making itself understood?
+#### 假设
 
-人是否能察觉代理在努力配合交流，让自己被理解？
+1 We expected that participants provide more feedback in the target condition AS than in the two control condition EA and NA
 
-#### 假设1
+预期AS组比EA、NA组提供更多反馈
 
-> We expected that participants provide more feedback in the target condition AS than in the two control condition EA and NA.
+2 In general we expected that participants in the target condition AS would provide higher ratings than participants in both control conditions EA and NA.
 
-预期AS组比EA、NA组提供更多反馈。
+AS组对代理的评价高于EA、NA组。
 
-#### 假设2
+3 We also expected that participants who interacted with the agent that explicitly asked whether it should repeat or continue (EA) would be rated higher than the agent that did not adapt at all (NA) — at least for some of the questionnaire items.
 
-> In general we expected that participants in the target condition AS would provide higher ratings than participants in both control conditions EA and NA.
+预期至少部分问卷项目中，EA组评价高于NA组
 
-预期AS组对代理的评价高于EA、NA组。
+#### 3．实验设置
 
-#### 假设3
+系统：使用同类代理配置三种行为策略，接入一个具身虚拟代理，日程助手
 
-> We also expected that participants who interacted with the agent that explicitly asked whether it should repeat or continue (EA) would be rated higher than the agent that did not adapt at all (NA) — at least for some of the questionnaire items.
-
-预期至少部分问卷项目中，EA组评价高于NA组。
-
-### 3．实验设置
-
-使用具身虚拟日程助手，配置三种行为策略，不是三种不同的LLM。
-
-| 条件 | 行为 |
+| 条件 | |
 | --- | --- |
 | AS：关注反馈 | 根据用户反馈判断继续或重复，不确定时询问用户 |
-| EA：明确询问 | 不处理自然反馈，每个信息单元后都询问继续还是重复 |
+| EA：明确询问 | 不处理自然反馈，每个信息单元后都问继续还是重复 |
 | NA：不调整 | 不处理反馈，说完当前单元就继续 |
 
-36人分三组，每组12人，每人只接触一种策略。
+36人分三组，听虚拟人介绍日程：一组由幕后研究者实时输入用户反馈、模型决定继续或重复，一组每讲完一条都问用户是否重复，一组直接继续，最后比较用户反馈和问卷评价
 
-AS条件中，幕后研究者实时输入用户反馈属性，模型据此决定代理怎样回应。
+任务：不能自由聊天，但可以点头、发出“嗯”等反馈。共六个对话阶段，每阶段2—3个信息单元，安排纸质日历回忆填写，互动后填写问卷。
 
-用户听虚拟人介绍日程，不能自由聊天，但可以点头、发出“嗯”等反馈。共六个对话阶段，每阶段2—3个信息单元。
+#### 4．数据采集
 
-安排纸质日历回忆填写，互动后填写问卷。
-
-### 4．数据采集
-
-| 数据 | 怎么收 | 何时收 | 用途 |
+| 收啥数据 | 怎么收 | 何时收 | 用途 |
 | --- | --- | --- | --- |
 | 用户声音 | 摄像头录像中的音轨 | 全程 | 标注发声反馈，回答RQ1 |
 | 用户头部动作 | 摄像头录像中的视频轨 | 全程 | 标注头动反馈，回答RQ1 |
-| 代理行为记录 | 分析中记录呈现次数、引出反馈提示及用户回应；具体记录方式未说明 | 互动中 | 计算反馈率和提示效果 |
+| 代理行为记录 | 分析中记录呈现次数、引出反馈提示及用户回应 | 互动中 | 计算反馈率、提示效果 |
 | 主观评价 | 20项七点问卷，本文分析其中6项 | 互动后 | 回答RQ2 |
 | 日程回忆 | 用户填写纸质日历 | 回忆阶段 | 安排了采集，本文未分析其有效性结果 |
 
-36次互动中，33次音视频可用。
+36次互动中，33次音视频可用
 
-### 5．数据—分析—结果
+#### 5．数据—分析—结果Mapping
 
 | 对应问题 | 数据怎样对应 | 具体分析 | 结果 |
 | --- | --- | --- | --- |
-| RQ1：有没有反馈、有哪些形式 | 声音与头动分别标注，时间重叠记为双模态反馈 | Praat转写发声，ELAN标注头动；排除回答代理明确问题时的反馈；统计类型和比例 | 共734个反馈：仅发声17.3%、仅头动40.3%、双模态42.4% |
-| AS是否反馈更多 | 每人的反馈数对应其信息呈现次数，包括重复呈现 | 反馈率＝反馈数÷呈现次数；贝叶斯方差分析及组间比较 | AS反馈率高于EA、NA |
-| AS反馈多是否仅因代理经常提示 | 将代理提示与其后4秒内的反馈对应 | 统计有效提示比例，另算没有提示的主动反馈 | 61%的提示引出反馈；46%的用户反馈为主动反馈 |
-| RQ2及评价假设 | 每人六项问卷评分对应实验条件 | 逐题比较；用贝叶斯因子比较条件，不合并总分 | AS在部分项目上优于对照；部分项目与EA没有明确差异 |
+| RQ1：有没有反馈、有哪些形式 | 声音与头动分别标注，时间重叠的归为双模态反馈 | Praat转写发声，ELAN标注头动。排除回答代理明确问题时的反馈。统计类型和比例 | 共734个反馈：仅发声17.3%，仅头动40.3%，双模态42.4% |
+| 假设：AS是否反馈更多 | 每人的反馈数对应其信息呈现次数，包括重复呈现 | 反馈率＝反馈数÷呈现次数，贝叶斯方差分析及组间比较 | AS反馈率高于EA、NA |
+| AS反馈多是否仅因代理经常提示 | 将代理提示与其后4秒内的反馈对应 | 统计有效提示比例，另算没有提示的主动反馈 | 61%的提示引出反馈，46%的用户反馈为主动反馈，差异不能只用提示次数解释 |
+| RQ2及评价假设 | 每人六项问卷评分对应实验条件 | 逐题比较中位数，用贝叶斯因子比较条件排序，不合并总分 | AS在“希望被理解”“帮助解决理解困难”等项目上优于对照，部分项目AS与EA没有明确差异 |
 
-### 6．具体工作流与对应需求
+#### 6．具体工作流与对应需求
 
-| 步骤 | 作者具体做了什么 | 工具需要支持什么 |
+| 步骤 | 作者具体做了什么 | 做这类研究，需要工具能做什么 |
 | --- | --- | --- |
-| 做出代理 | 将已有模型接到日程虚拟人上，解释反馈、调整说法、主动索取反馈 | 接入虚拟代理，执行不同回应策略 |
-| 设置三个版本 | 配置AS、EA、NA三种策略 | 同一代理切换行为规则 |
-| 准备讲解内容 | 将日程及变更拆成信息单元 | 录入内容、划分单元，记录重复呈现 |
-| 分配参与者 | 每组12人，每人只接触一种策略 | 保存参与者与条件编号 |
-| 人工观察反馈 | 研究者观察用户，实时输入反馈属性 | 支持实时人工输入，并注明来源 |
-| 让代理回应 | AS根据模型判断继续、重复或询问 | 保存输入、模型判断及实际回应 |
-| 录下用户 | 同时取得声音和头部视频 | 同步保存、联合回放 |
-| 分别标注 | Praat标声音，ELAN标头动 | 标出起止和类型，区分自然反馈与问题回答 |
-| 找组合反馈 | 发声与头动时间重叠时记为双模态 | 查找同时发生的信号并查看原片段 |
-| 对应代理提示 | 检查提示后4秒内是否有反馈 | 以事件为起点查找指定窗口 |
-| 计算反馈率 | 反馈数除以实际呈现次数，包含重复 | 区分首次和重复呈现 |
-| 收集问卷 | 互动后收20项评分，选6项分析 | 关联参与者、条件及问卷 |
-| 比较条件 | 比较三组反馈率与评价 | 按参与者导出数据供统计分析 |
+| 1．做出代理 | 把三个已有模型接到日程虚拟人上：解释用户反馈、调整说法、主动索取反馈 | 能接入一个虚拟人，让它说话，并根据反馈决定下一步 |
+| 2．设置三个版本 | 给代理配置AS、EA、NA三种策略 | 同一个代理能切换三种说话规则：看反馈再决定、每次都问、直接继续 |
+| 3．准备讲解内容 | 将日程和变更拆成信息单元，每阶段2—3个 | 能录入讲解内容、划分单元；重复时知道正在重复哪一条 |
+| 4．分配参与者 | 每组12人，每人只接触一种策略 | 给参与者安排一个版本，并保存其条件编号 |
+| 5．人工观察反馈 | 研究者看用户，实时向系统输入反馈属性 | 实验员能及时输入“点头”“负向反馈”等，注明这是人工输入 |
+| 6．让代理回应 | AS根据模型判断继续、重复或询问 | 人工输入后，代理能执行对应行为；留下判断和实际回应记录 |
+| 7．录下用户 | 同时取得声音和头部视频 | 保存同一段互动的声音和视频，能一起回放 |
+| 8．分别标注 | Praat标声音，ELAN标头动；排除明确问答中的反馈 | 能标出反馈起止和类型，并注明“自然反馈”还是“回答问题” |
+| 9．找组合反馈 | 发声与头动在时间上重叠，记为双模态反馈 | 能找到“嗯＋点头”这种同时发生的组合，并查看原片段 |
+| 10．对应代理提示 | 检查提示后4秒内是否有用户反馈 | 能以代理提示为起点，查找指定时间内的反应 |
+| 11．计算反馈率 | 反馈数除以实际呈现次数，包含重复 | 能分别数清反馈、首次讲解和重复讲解 |
+| 12．收集问卷 | 互动后收20项评分，选6项分析 | 问卷答案能关联到参与者及其代理版本 |
+| 13．比较条件 | 比较三组反馈率与各题评分 | 能导出按参与者整理的数据，供R等软件分析 |
 
----
+### 2 Multi-Modal Repairs of Conversational Breakdowns in Task-Oriented Dialogs
 
-## A2．Multi-Modal Repairs of Conversational Breakdowns in Task-Oriented Dialogs
-
-**UIST 2020**
+UIST 2020
 
 https://toby.li/files/Li_Sovite_Error_Handling_UIST2020.pdf
 
-### 1．背景
+语音助手理解错任务后，用户不知道错在哪里，反复换说法也可能无效
 
-语音助手理解错任务后，用户不知道错在哪里，反复换说法也可能无效。
+作者开发SOVITE：用应用截图展示系统理解的任务，让用户直接指出、修改错误
 
-作者开发SOVITE，用应用截图展示系统理解的任务，让用户直接指出和修改错误。
+<img width="1280" height="776" alt="image" src="https://github.com/user-attachments/assets/a846150a-554d-4b33-80ad-22f66185e478" />
 
-### 2．RQ
+#### 2．RQ
 
-#### RQ1
+RQ1
 
-> Can users understand and use SOVITE’s new features for identifying and repairing conversational breakdowns?
+Can users understand and use SOVITE’s new features for identifying and repairing conversational breakdowns?
 
-用户能否理解并使用SOVITE的新功能，发现和修复对话问题？
+RQ2
 
-#### RQ2
+Is SOVITE effective for fixing conversational breakdowns caused by natural language understanding errors in task-oriented agents?
 
-> Is SOVITE effective for fixing conversational breakdowns caused by natural language understanding errors in task-oriented agents?
+#### 3．实验设置
 
-SOVITE能否修复任务代理中由自然语言理解错误造成的对话问题？
+用Java开发Android应用SOVITE，接在SUGILITE任务代理上，运行于Pixel 2 XL手机
 
-### 3．实验设置
+系统把理解结果显示为应用截图＋高亮参数，例如，叫Uber时，高亮起点和终点，用户可以说出正确应用、展示正确界面、拖动高亮或修改文字
 
-用Java开发Android应用SOVITE，接在SUGILITE任务代理上，运行于Pixel 2 XL手机。
+使用语义解析器处理命令、Sentence-BERT查找相关任务
 
-系统把理解结果显示为应用截图和高亮参数。用户可以说出正确应用、展示正确界面、拖动高亮或修改文字。
-
-使用语义解析器处理命令、Sentence-BERT查找相关任务。
-
-10人分别检查7种预设情境，顺序随机。
+10人分别检查7种预设情境，顺序随机
 
 | 情境 | 原本要做什么 | 系统理解成什么 |
 | --- | --- | --- |
@@ -198,8 +197,6 @@ SOVITE能否修复任务代理中由自然语言理解错误造成的对话问�
 | 6 | 查The Lego Movie场次 | 只提取The Lego |
 | 7 | 从家叫Uber去机场 | 起终点反了 |
 
-#### 流程
-
 1. 同意参与，填写人口信息。
 2. 看SOVITE功能教程。
 3. 阅读某个预设请求及系统回应。
@@ -207,52 +204,59 @@ SOVITE能否修复任务代理中由自然语言理解错误造成的对话问�
 5. 完成全部7种情境。
 6. 填写问卷，接受简短访谈。
 
-远程实验中，由用户指挥研究者在手机上操作。
-
-### 4．收集什么数据
+#### 4．收集什么数据
 
 | 数据 | 具体记录什么 | 怎么收、何时收 |
 | --- | --- | --- |
-| 是否发现理解错误 | 是否指出Uber起终点反了等 | 每种情境观察用户判断 |
-| 修复方式及结果 | 是否拖动高亮，最后是否改对 | 修复过程中观察 |
+| 用户是否发现理解错误 | 是否指出Uber起终点反了等 | 每种情境观察用户判断 |
+| 修复方式及结果 | 是否拖动高亮；最后是否改对 | 修复过程中观察 |
 | 操作困难 | 是否误点截图中不可操作的按钮 | 使用过程中观察 |
-| 主观评价 | 易用性、有用性、满意度及功能评价 | 全部情境后，七点问卷 |
+| 主观评价 | 易用性、有用性、满意度、功能评价 | 全部情境后，七点问卷 |
 | 用户解释 | 为什么没发现错误、哪里困惑 | 结束访谈 |
 
-### 5．数据—分析—结果
+#### 5．数据怎样分析，得到什么
 
 | 对应问题 | 数据怎样对应 | 怎么分析 | 结果 |
 | --- | --- | --- | --- |
-| RQ1、RQ2：能否发现错误 | 预设正确任务、系统回应和用户判断，按参与者及情境对应 | 统计正确发现次数 | 60次错误中发现57次，95%；10次无错误全部判断正确 |
-| RQ2：能否修复 | 每次已发现错误、修复操作和最后结果 | 统计修复成功次数 | 发现的57次错误全部修好 |
+| RQ1、RQ2：能否发现错误 | 预设正确任务＋系统回应＋用户判断，按参与者和情境对应 | 统计正确发现次数 | 60次错误中发现57次，95%；10次无错误全部判断正确 |
+| RQ2：能否修复 | 每次已发现错误＋修复操作＋最后结果 | 统计修复成功次数 | 发现的57次错误全部修好 |
 | RQ1：功能是否好用 | 每人对应问卷题评分 | 计算均值、SD | 易用性6.4、有用性6.1、满意度6.3，满分7 |
-| 为什么漏检 | 3次漏检及事后解释 | 描述案例；未报告正式编码方法 | 用户预期系统不会犯此类错误，没有仔细检查 |
-| 哪里不直观 | 操作困难及后续表现 | 描述观察案例 | 部分用户最初以为截图上的所有按钮都能操作 |
+| 为什么漏检 | 3次漏检＋事后解释 | 描述案例；未报告正式编码方法 | 用户预期系统不会犯这类错误，没有仔细检查 |
+| 哪里不直观 | 操作中的困惑＋后续表现 | 描述观察案例 | 部分用户最初以为截图上的所有按钮都能操作 |
 
-> 只能说明这些情境下用户能够发现并修复多数错误；没有比较其他修复工具，也没有证明效率更高。
+**只能说明这7种情境下用户能够发现并修复多数错误；没有比较其他修复工具，也没有证明效率更高。**
 
-### 6．具体工作流与对应需求
+#### 6．具体工作流与对应需求
 
-| 步骤 | 作者具体做了什么 | 工具需要支持什么 |
+| 步骤 | 作者具体做了什么 | 工具需要能做什么 |
 | --- | --- | --- |
 | 接入系统 | 在手机上运行SOVITE和任务应用 | 接入真实任务代理，显示实际回应 |
-| 准备情境 | 准备7组请求与回应，标明预设错误 | 分开保存请求、系统结果和错误设置 |
-| 展示理解 | 截图显示所选应用，高亮参数 | 呈现系统具体理解成了什么 |
-| 安排任务 | 每人经历全部情境，顺序随机 | 随机排序并保存实际顺序 |
-| 远程操作 | 用户指挥，研究者代点击和复述 | 区分用户要求与研究者实际执行 |
-| 接收修复 | 支持说应用名、展示界面、拖高亮、改文字 | 接收不同方式的纠正 |
-| 检查结果 | 分别检查有没有发现、有没有修好 | 两项分别记录 |
-| 收集解释 | 问卷评价整体，访谈解释具体失败 | 整体评价关联参与者，解释关联情境 |
+| 准备情境 | 准备7组请求与回应，标明哪里故意理解错 | 分开保存用户请求、系统结果和预设错误 |
+| 展示理解 | 截图显示所选应用，高亮起点、终点等参数 | 让参与者看见系统具体理解成什么 |
+| 安排任务 | 每人经历全部情境，顺序随机 | 随机排任务，保存每人的顺序 |
+| 远程操作 | 用户指挥，研究者代点击、复述 | 区分用户要求和研究者实际执行的动作 |
+| 接收修复 | 支持说应用名、展示界面、拖动高亮、改文字 | 同一任务能接收不同方式的纠正 |
+| 检查结果 | 分别检查有没有发现、有没有修好 | 两项分别记录，不能只写“任务成功” |
+| 收集解释 | 问卷评价整体，访谈解释具体失败 | 整体评价关联参与者，失败解释关联具体情境 |
 
----
+## B 能否从用户信号判断某种情况？
 
-# B．能否从用户信号判断某种情况？
+### Do You (Dis)agree With Me? Modelling Implicit User Disagreement in Human–AI Interaction Using Gaze Data
 
-## Do You (Dis)agree With Me? Modelling Implicit User Disagreement in Human–AI Interaction Using Gaze Data
+利用视线数据建模人–AI互动中的用户隐性不同意
 
-**CHI 2026**
+CHI 2026
+
+https://www.dfki.de/web/forschung/projekte-publikationen/publikation/1700
+
+系统怎样在不要求用户明确输入的情况下，感知用户不同意？
+
 
 https://www.dfki.de/web/forschung/projekte-publikationen/publikation/17004
+
+<img width="1280" height="457" alt="image" src="https://github.com/user-attachments/assets/05e11d67-d1ed-48b1-aad4-153a269dc767" />
+<img width="788" height="668" alt="image" src="https://github.com/user-attachments/assets/5181b6de-b228-407d-8c6f-382b582001e5" />
+
 
 ### 1．背景
 
@@ -347,9 +351,13 @@ https://www.dfki.de/web/forschung/projekte-publikationen/publikation/17004
 
 ## From Gaze to Guidance: Interpreting and Adapting to Users’ Cognitive Needs with Multimodal Gaze-Aware AI Assistants
 
-**UIST 2026；以下依据作者预印本v1整理。**
+**UIST 2026**
 
 https://arxiv.org/html/2604.08062v1
+<img width="1280" height="509" alt="image" src="https://github.com/user-attachments/assets/12d54c76-c74a-4b9b-ba74-6c70401f3870" />
+<img width="1280" height="638" alt="image" src="https://github.com/user-attachments/assets/27ef53e1-6320-4516-bcf2-dbd0fc0c4fc6" />
+<img width="1280" height="482" alt="image" src="https://github.com/user-attachments/assets/4bc287fa-791a-44f1-ae1a-f3a195e16ecb" />
+
 
 ### 1．背景与研究目标
 
